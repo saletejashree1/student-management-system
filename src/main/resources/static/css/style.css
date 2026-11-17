@@ -688,3 +688,217 @@ a {
         width: 100%;
     }
 }
+
+/* =====================================
+   CAMPUSPRO DASHBOARD DESIGN FIX
+===================================== */
+
+/* Dashboard statistics */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    column-gap: 16px;
+    align-items: center;
+    background: #ffffff;
+    padding: 25px;
+    border: 1px solid #e5eaf2;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(20,36,61,0.05);
+}
+
+.stat-icon {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    background: #e8f0ff;
+    color: #2869ce;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+
+.stat-card p {
+    grid-column: 2;
+    font-size: 13px;
+    color: #8995a8;
+    margin: 0 0 5px;
+}
+
+.stat-card h2 {
+    grid-column: 2;
+    font-size: 27px;
+    color: #172a46;
+    margin: 0 0 4px;
+}
+
+.stat-card small {
+    grid-column: 2;
+    color: #8995a8;
+    font-size: 11px;
+}
+
+/* Recent student records section */
+.table-section {
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(20,36,61,0.04);
+    margin-top: 25px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 23px 25px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.section-heading h2 {
+    color: #172a46;
+    font-size: 18px;
+}
+
+.section-heading p {
+    color: #929daf;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* Dashboard table */
+.table-section .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    background: #ffffff;
+}
+
+.student-table th {
+    background: #f8f9fc;
+    color: #8491a5;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 17px 22px;
+}
+
+.student-table td {
+    padding: 17px 22px;
+    border-bottom: 1px solid #edf0f5;
+    color: #526178;
+    font-size: 13px;
+}
+
+.table-section tbody tr:hover {
+    background: #f8faff;
+}
+
+/* View all students button */
+.secondary-btn {
+    display: inline-block;
+    background: #edf3ff;
+    color: #2869ce;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.secondary-btn:hover {
+    background: #2869ce;
+    color: white;
+}
+
+/* Dashboard responsive design */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .main-content {
+        padding: 20px 13px;
+    }
+}
+
+/* DASHBOARD RECENT STUDENTS TABLE FIX */
+
+.table-section table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #ffffff;
+}
+
+.table-section thead th {
+    background: #f3f6fb;
+    color: #526178;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5eaf2;
+}
+
+.table-section tbody td {
+    padding: 16px 20px;
+    font-size: 13px;
+    color: #526178;
+    text-align: left;
+    border-bottom: 1px solid #edf0f5;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+.table-section tbody tr:hover {
+    background: #f8faff;
+}
+
+.table-section th:nth-child(1),
+.table-section td:nth-child(1) {
+    width: 10%;
+}
+
+.table-section th:nth-child(2),
+.table-section td:nth-child(2) {
+    width: 25%;
+}
+
+.table-section th:nth-child(3),
+.table-section td:nth-child(3) {
+    width: 40%;
+}
+
+.table-section th:nth-child(4),
+.table-section td:nth-child(4) {
+    width: 25%;
+}

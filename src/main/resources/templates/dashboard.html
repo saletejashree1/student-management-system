@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusPro | Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css?v=3}">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <div>
+                <h2>CampusPro</h2>
+                <span>COLLEGE MANAGEMENT</span>
+            </div>
+        </div>
+
+        <p class="menu-label">MAIN MENU</p>
+
+        <nav class="sidebar-menu">
+
+            <a th:href="@{/dashboard}" class="menu-item active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a th:href="@{/students}" class="menu-item">
+                <span>♙</span> Manage Students
+            </a>
+
+            <a th:href="@{/students/new}" class="menu-item">
+                <span>＋</span> Add Student
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="profile-avatar">A</div>
+            <div>
+                <strong>Administrator</strong>
+                <small>College Admin</small>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome to your college management system.</p>
+            </div>
+
+            <a th:href="@{/students/new}" class="primary-btn">
+                + Add Student
+            </a>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">♙</div>
+
+                <p>Total Students</p>
+
+                <h2 th:text="${totalStudents}">0</h2>
+
+                <small>Registered students</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">▤</div>
+
+                <p>Student Records</p>
+
+                <h2 th:text="${totalStudents}">0</h2>
+
+                <small>Available records</small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">▣</div>
+
+                <p>College Courses</p>
+
+                <h2>—</h2>
+
+                <small>Course module not configured</small>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT STUDENT RECORDS -->
+        <section class="table-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Recent Student Records</h2>
+                    <p>Students registered in the system</p>
+                </div>
+
+                <a th:href="@{/students}" class="secondary-btn">
+                    View All Students
+                </a>
+
+            </div>
+
+
+            <!-- STUDENT TABLE -->
+            <div class="table-wrapper">
+
+                <table class="student-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr th:each="student : ${recentStudents}">
+
+                            <td th:text="${student.id}"></td>
+
+                            <td th:text="${student.name}"></td>
+
+                            <td th:text="${student.email}"></td>
+
+                            <td th:text="${student.course}"></td>
+
+                        </tr>
+
+
+                        <tr th:if="${#lists.isEmpty(recentStudents)}">
+
+                            <td colspan="4">
+                                No student records available.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
